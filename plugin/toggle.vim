@@ -250,50 +250,50 @@ function! s:Toggle() "{{{
     " 4. Check if complete word can be toggled {{{
     if (s:toggleDone == 0)
         let s:wordUnderCursor_tmp = ''
-"                 
+
         let s:wordUnderCursor = s:Toggle_getCurrentWord()
-        if (s:wordUnderCursor ==? "true")
+        if (s:wordUnderCursor =~? "true")
             let s:wordUnderCursor_tmp = "false"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "false")
+        elseif (s:wordUnderCursor =~? "false")
             let s:wordUnderCursor_tmp = "true"
             let s:toggleDone = 1
 
-        elseif (s:wordUnderCursor ==? "on")
+        elseif (s:wordUnderCursor =~? "on")
             let s:wordUnderCursor_tmp = "off"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "off")
+        elseif (s:wordUnderCursor =~? "off")
             let s:wordUnderCursor_tmp = "on"
             let s:toggleDone = 1
 
-        elseif (s:wordUnderCursor ==? "yes")
+        elseif (s:wordUnderCursor =~? "yes")
             let s:wordUnderCursor_tmp = "no"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "no")
+        elseif (s:wordUnderCursor =~? "no")
             let s:wordUnderCursor_tmp = "yes"
             let s:toggleDone = 1
 
-        elseif (s:wordUnderCursor ==? "define")
+        elseif (s:wordUnderCursor =~? "define")
             let s:wordUnderCursor_tmp = "undef"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "undef")
+        elseif (s:wordUnderCursor =~? "undef")
             let s:wordUnderCursor_tmp = "define"
             let s:toggleDone = 1
 
-        elseif (s:wordUnderCursor ==? "public")
+        elseif (s:wordUnderCursor =~? "public")
             let s:wordUnderCursor_tmp = "private"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "private")
+        elseif (s:wordUnderCursor =~? "private")
             let s:wordUnderCursor_tmp = "protected"
             let s:toggleDone = 1
-        elseif (s:wordUnderCursor ==? "protected")
+        elseif (s:wordUnderCursor =~? "protected")
             let s:wordUnderCursor_tmp = "public"
             let s:toggleDone = 1
 
         else
             " custom pairs
             for l:k in keys(s:toggle_pairs)
-                if (s:wordUnderCursor ==? l:k)
+                if (s:wordUnderCursor =~? l:k)
                     let s:wordUnderCursor_tmp = s:toggle_pairs[l:k]
                     let s:toggleDone = 1
                     break
